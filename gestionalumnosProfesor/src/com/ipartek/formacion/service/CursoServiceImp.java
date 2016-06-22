@@ -37,7 +37,6 @@ public class CursoServiceImp implements CursoService {
 	@Override
 	public void delete(int codigo) {
 		this.cursos.remove(getIndex(codigo));
-
 	}
 
 	@Override
