@@ -2,6 +2,7 @@ package com.ipartek.formacion.service;
 
 import java.util.List;
 
+import com.ipartek.formacion.pojo.Alumno;
 import com.ipartek.formacion.pojo.Curso;
 import com.ipartek.formacion.pojo.Modulo;
 
@@ -18,4 +19,18 @@ public interface CursoService {
 	public List<Curso> getAll();
 	
 	public Curso update(Curso curso);
+	
+	public void darDeAlta(Alumno alumno);
+	
+	public void darDeBaja(Alumno alumno);
+
+
+
+
+
+
+
+
+
+
 }
