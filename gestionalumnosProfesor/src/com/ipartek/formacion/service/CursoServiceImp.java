@@ -1,5 +1,6 @@
 package com.ipartek.formacion.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -8,39 +9,59 @@ import com.ipartek.formacion.pojo.Curso;
 
 public class CursoServiceImp implements CursoService {
 
+	private List<Curso> cursos;
+	private static int i = 1;
+	public CursoServiceImp(){
+		init();
+	}
+	private void init() {
+		cursos = new ArrayList<Curso>();
+		Curso curso = new Curso();
+		curso.setNombre("Desarrollo de aplicaciones con tecnologías web Java / ASP.NET");
+		create(curso);
+	}
 	@Override
 	public Curso create(Curso curso) {
+		curso.setCodigo(i);
+		this.cursos.add(curso);
 		
-		return null;
+		return curso;
 	}
 
 	@Override
 	public Curso getById(int codigo) {
-		// TODO Auto-generated method stub
-		return null;
+		 
+		return this.cursos.get(getIndex(codigo));
 	}
 
 	@Override
 	public void delete(int codigo) {
-		// TODO Auto-generated method stub
+		this.cursos.remove(getIndex(codigo));
 
 	}
 
 	@Override
 	public List<Curso> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.cursos;
 	}
 
 	@Override
 	public Curso update(Curso curso) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	private Curso getIndex(int codigo){
-		Curso curso = null;
-		
+		this.cursos.add(getIndex(i), curso);
 		return curso;
+	}
+	private int getIndex(int codigo){
+		int i = 0,index = -1,len = cursos.size();
+		boolean econtrado = false;
+		while (i < len && econtrado == false){
+			if(cursos.get(i).getCodigo()==codigo){
+				econtrado = true;
+				index = i;
+			}
+			i++;
+		}
+		return index;
 	}
 	@Override
 	public void darDeAlta(Alumno alumno) {

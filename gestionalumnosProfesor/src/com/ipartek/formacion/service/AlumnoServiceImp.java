@@ -13,6 +13,7 @@ public class AlumnoServiceImp implements AlumnoService{
 		Alumno alumno = new Alumno();
 		
 		alumno.setCodigo(1);
+		alumno.setDni("68925141y");
 		alumno.setNombre("Imanol");
 		alumno.setApellidos("Jimenez Lopez");
 		alumnos.add(alumno);
@@ -20,6 +21,7 @@ public class AlumnoServiceImp implements AlumnoService{
 		alumno = new Alumno();
 		alumno.setCodigo(2);
 		alumno.setNombre("Josu");
+		alumno.setDni("68925142z");
 		alumno.setApellidos("Asua Gallego");
 		alumnos.add(alumno);
 		i++;

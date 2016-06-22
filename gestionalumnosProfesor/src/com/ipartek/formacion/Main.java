@@ -13,6 +13,8 @@ import com.ipartek.formacion.pojo.Curso;
 import com.ipartek.formacion.pojo.Modulo;
 import com.ipartek.formacion.service.AlumnoService;
 import com.ipartek.formacion.service.AlumnoServiceImp;
+import com.ipartek.formacion.service.CursoService;
+import com.ipartek.formacion.service.CursoServiceImp;
 import com.ipartek.formacion.service.ModuloService;
 import com.ipartek.formacion.service.ModuloServiceImp;
 
@@ -110,5 +112,12 @@ public class Main {
 			System.out.println(aux.getNombre());
 		}
 		
+	}
+	private void matricularAlumnos(){
+		CursoService cService = new CursoServiceImp();
+		AlumnoService aService = new AlumnoServiceImp();
+		Alumno alumn = aService.getById(1);
+		alumn.setCurso(cService.getById(1));
+		cService.darDeAlta(alumn);
 	}
 }
