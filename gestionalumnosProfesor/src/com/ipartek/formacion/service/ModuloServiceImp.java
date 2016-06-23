@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ipartek.formacion.pojo.Modulo;
+import com.ipartek.formacion.service.exceptions.ModuloServiceException;
 
 public class ModuloServiceImp implements ModuloService{
 
@@ -32,10 +33,16 @@ public class ModuloServiceImp implements ModuloService{
 
 	@Override
 	public Modulo getById(int codigo) {
-		Modulo modulo = this.modulos.get(getIndex(codigo));
+		Modulo modulo = null;
+		try {
+			modulo = this.modulos.get(getIndex(codigo));
+		} catch (ModuloServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return modulo;
 	}
-	private int getIndex(int codigo){
+	private int getIndex(int codigo) throws ModuloServiceException{
 		int index = -1;
 		int i= 0,len = modulos.size();
 		boolean encontrado = false;
@@ -46,14 +53,21 @@ public class ModuloServiceImp implements ModuloService{
 			}
 			i++;
 		}	
-		
+		if(i==-1){
+			throw new  ModuloServiceException(ModuloServiceException.CODIGO_MODULO_NO_ECONTRADO,ModuloServiceException.MSG_MODULO_NO_ENCONTRADO);
+		}
 		return index;
 	}
 	@Override
 	public void delete(int codigo) {
 		//DELETE FROM modulo
 		//WHERE id = codigo;
-		modulos.remove(getIndex(codigo));
+		try {
+			modulos.remove(getIndex(codigo));
+		} catch (ModuloServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -65,7 +79,12 @@ public class ModuloServiceImp implements ModuloService{
 
 	@Override
 	public Modulo update(Modulo modulo) {
-		this.modulos.add(getIndex(modulo.getCodigo()), modulo);
+		try {
+			this.modulos.add(getIndex(modulo.getCodigo()), modulo);
+		} catch (ModuloServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return modulo;
 	}
 

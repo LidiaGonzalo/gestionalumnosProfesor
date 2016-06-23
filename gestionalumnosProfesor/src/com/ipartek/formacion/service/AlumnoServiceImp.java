@@ -7,6 +7,7 @@ import java.util.List;
 import com.ipartek.formacion.pojo.Alumno;
 import com.ipartek.formacion.pojo.Curso;
 import com.ipartek.formacion.pojo.exception.CandidatoException;
+import com.ipartek.formacion.service.exceptions.AlumnoServiceException;
 
 public class AlumnoServiceImp implements AlumnoService{
 	private List<Alumno> alumnos;
@@ -79,8 +80,15 @@ public class AlumnoServiceImp implements AlumnoService{
 	@Override
 	public Alumno getById(int codigo) {
 		Alumno alumno = null;
-		int index = getIndex(codigo);
-		alumno = alumnos.get(index);
+		int index;
+		try {
+			index = getIndex(codigo);
+			alumno = alumnos.get(index);
+		} catch (AlumnoServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		
 		return alumno;
@@ -88,11 +96,18 @@ public class AlumnoServiceImp implements AlumnoService{
 
 	@Override
 	public void delete(int codigo) {
-		int index = getIndex(codigo);
-		this.alumnos.remove(index);
+		int index;
+		try {
+			index = getIndex(codigo);
+			this.alumnos.remove(index);
+		} catch (AlumnoServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
-	private int getIndex(int codigo){
+	private int getIndex(int codigo) throws AlumnoServiceException{
 		int index = -1;
 		int i = 0,len= this.alumnos.size();
 		boolean encontrado = false;
@@ -104,6 +119,9 @@ public class AlumnoServiceImp implements AlumnoService{
 			}
 			i++;
 		}
+		if(i == -1){
+			throw new AlumnoServiceException(AlumnoServiceException.CODIGO_ALUMNO_NO_ECONTRADO,AlumnoServiceException.MSG_ALUMNO_NO_ENCONTRADO);
+		}
 		return index;
 	}
 	
@@ -113,8 +131,15 @@ public class AlumnoServiceImp implements AlumnoService{
 	}
 	@Override
 	public Alumno update(Alumno alumno) {
-		int index = getIndex(alumno.getCodigo());
-		this.alumnos.add(index, alumno);
+		int index;
+		try {
+			index = getIndex(alumno.getCodigo());
+			this.alumnos.add(index, alumno);
+		} catch (AlumnoServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return alumno;
 	}
 }

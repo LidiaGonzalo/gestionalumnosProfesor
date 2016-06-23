@@ -7,7 +7,7 @@ public class CandidatoException extends Exception{
 	private int codigo;
 	private String mensaje;
 	public CandidatoException(int codigo, String mensaje) {
-		super();
+		super(mensaje);
 		this.codigo = codigo;
 		this.mensaje = mensaje;
 	}
@@ -26,17 +26,6 @@ public class CandidatoException extends Exception{
 	}
 	public CandidatoException(Throwable cause) {
 		super(cause);
-		// TODO Auto-generated constructor stub
+
 	}
-	
-	@Override
-	public String getMessage() {
-		// TODO Auto-generated method stub
-		return this.mensaje;
-	}
-		
-	
-	
-	
-	
 }

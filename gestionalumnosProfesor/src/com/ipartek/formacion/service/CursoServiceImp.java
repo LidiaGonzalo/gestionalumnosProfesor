@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.ipartek.formacion.pojo.Alumno;
 import com.ipartek.formacion.pojo.Curso;
+import com.ipartek.formacion.service.exceptions.CursoServiceException;
 
 public class CursoServiceImp implements CursoService {
 
@@ -30,13 +31,24 @@ public class CursoServiceImp implements CursoService {
 
 	@Override
 	public Curso getById(int codigo) {
-		 
-		return this.cursos.get(getIndex(codigo));
+		 Curso curso = null;
+		try {
+			curso = this.cursos.get(getIndex(codigo));
+		} catch (CursoServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return curso;
 	}
 
 	@Override
 	public void delete(int codigo) {
-		this.cursos.remove(getIndex(codigo));
+		try {
+			this.cursos.remove(getIndex(codigo));
+		} catch (CursoServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -47,10 +59,15 @@ public class CursoServiceImp implements CursoService {
 
 	@Override
 	public Curso update(Curso curso) {
-		this.cursos.add(getIndex(i), curso);
+		try {
+			this.cursos.add(getIndex(curso.getCodigo()), curso);
+		} catch (CursoServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return curso;
 	}
-	private int getIndex(int codigo){
+	private int getIndex(int codigo) throws CursoServiceException{
 		int i = 0,index = -1,len = cursos.size();
 		boolean econtrado = false;
 		while (i < len && econtrado == false){
@@ -60,6 +77,10 @@ public class CursoServiceImp implements CursoService {
 			}
 			i++;
 		}
+		if(i == -1){
+			throw new CursoServiceException(CursoServiceException.CODIGO_CURSO_NO_ECONTRADO, CursoServiceException.MSG_CURSO_NO_ENCONTRADO);
+		}
+			
 		return index;
 	}
 	@Override
