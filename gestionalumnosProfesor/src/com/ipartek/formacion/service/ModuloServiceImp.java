@@ -11,7 +11,7 @@ import com.ipartek.formacion.service.exceptions.ModuloServiceException;
 public class ModuloServiceImp implements ModuloService{
 
 	private List<Modulo>modulos;
-	private static int i  = 0;
+	private static int i  = 1;
 	private void init(){
 		Modulo modulo = new Modulo();
 		modulo.setNombre("Desarrollo Aplicaciones Web");
