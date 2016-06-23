@@ -31,14 +31,14 @@ public class GestionFicherosServiceImp implements GestionFicherosService {
 		List<Serializable> lista = null;
 		String path = datosFichero.getRuta()+File.pathSeparator+datosFichero.getNombre()+File.separator+datosFichero.getExtension();
 		File archivo = new File(path);
-		FileInputStream fileInput;
-		ObjectInputStream input;
+		FileInputStream fileInput = null;
+		ObjectInputStream input = null;
 		
 		try {
 			int len;
 			fileInput = new FileInputStream(archivo);
 			input = new ObjectInputStream(fileInput);
-			lista = (List<Serializable>) input.readObject();
+			lista = ((List<Serializable>) input.readObject());
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -52,7 +52,13 @@ public class GestionFicherosServiceImp implements GestionFicherosService {
 		} catch (Exception e){
 			
 		}finally{
-			
+			if(input!= null){
+				try {
+					input.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		
 		
@@ -64,7 +70,7 @@ public class GestionFicherosServiceImp implements GestionFicherosService {
 		String path = datosFichero.getRuta()+File.pathSeparator+datosFichero.getNombre()+File.separator+datosFichero.getExtension();
 		File archivo = new File(path);
 		FileOutputStream fileOutput;
-		ObjectOutputStream out;
+		ObjectOutputStream out = null;
 		try {
 			fileOutput = new FileOutputStream(archivo);
 			out = new ObjectOutputStream(fileOutput);
@@ -77,6 +83,15 @@ public class GestionFicherosServiceImp implements GestionFicherosService {
 			e.printStackTrace();
 		} catch (Exception e){
 			e.printStackTrace();
+		} finally{
+			if(out!=null){
+				try {
+					out.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 		
 
