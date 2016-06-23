@@ -1,9 +1,11 @@
 package com.ipartek.formacion.pojo;
 
+import com.ipartek.formacion.pojo.exception.CandidatoException;
+
 public class Alumno extends Candidato implements Comparable<Alumno>{
 	private Curso curso;
 
-	public Alumno() {
+	public Alumno() throws CandidatoException {
 		super();
 		this.curso = new Curso();
 	}

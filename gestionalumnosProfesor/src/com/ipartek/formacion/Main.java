@@ -25,7 +25,7 @@ public class Main {
 	
 		System.out.println(aService.getById(1).toString());
 		List<Alumno> listAlumnos = aService.getAll();
-				
+		/*		
 		Alumno alum = AlumnoServiceImp.getAlumno();
 		int[] notas = {0,6,9};
 		Alumno[] alumnos = {alum,alum};
@@ -38,11 +38,14 @@ public class Main {
 		for(Alumno aux: alumnos){
 			System.out.println(aux.getNombre());
 		}
+		
 		int i = 0;
 		while (i < alumnos.length){
 			i++;
 		}
-		evaluar(alum);	
+		//evaluar(alum);
+		 * 	
+		 */
 	}
 	public static String saludarAlumno(Candidato alumno){
 		String saludo = ""; //&
@@ -121,4 +124,5 @@ public class Main {
 		alumn.setCurso(cService.getById(1));
 		cService.darDeAlta(alumn);
 	}
+
 }

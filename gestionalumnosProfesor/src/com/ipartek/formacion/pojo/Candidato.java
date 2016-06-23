@@ -27,9 +27,10 @@ public class Candidato {
 	private String dni;
 	private Double nota;
 	/**
+	 * @throws CandidatoException 
 	 * 
 	 */
-	public Candidato() {
+	public Candidato() throws CandidatoException {
 		super();
 		setCodigo(CODIGO_ALUMNO);
 		setNombre("");
@@ -62,9 +63,9 @@ public class Candidato {
 	public Date getfNacimiento() {
 		return fNacimiento;
 	}
-	public void setfNacimiento(Date fNacimiento) {
+	public void setfNacimiento(Date fNacimiento) throws CandidatoException {
 		if(fNacimiento.compareTo(new Date())>0){
-			new CandidatoException(CandidatoException.CODIGO_ERROR_FECHA_NACIMIENTO,CandidatoException.MSG_ERROR_FECHA_NACIMIENTO);
+			throw new CandidatoException(CandidatoException.CODIGO_ERROR_FECHA_NACIMIENTO,CandidatoException.MSG_ERROR_FECHA_NACIMIENTO);
 		}else{
 			this.fNacimiento = fNacimiento;
 		}
