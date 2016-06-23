@@ -1,7 +1,6 @@
 package com.ipartek.formacion;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +20,7 @@ import com.ipartek.formacion.service.ModuloServiceImp;
 public class Main {
 
 	public static void main(String[] args) {
+		
 		AlumnoService aService = new AlumnoServiceImp();
 	
 		System.out.println(aService.getById(1).toString());
@@ -33,6 +33,7 @@ public class Main {
 		Arrays.sort(alumnos);
 		for(int i = 0; i< alumnos.length; i++){
 			Alumno aux = alumnos[i];
+			System.out.println(aux.getNombre());
 		}
 		for(Alumno aux: alumnos){
 			System.out.println(aux.getNombre());

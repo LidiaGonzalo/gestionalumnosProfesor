@@ -19,6 +19,7 @@ public class Curso {
 		setCodigo(CODIGO_CURSO);
 		setNombre("");
 		modulos = new HashMap<Integer,Modulo>();
+		alumnos = new HashMap<String, Alumno>();
 	}
 	
 	public Map<String, Alumno> getAlumnos() {

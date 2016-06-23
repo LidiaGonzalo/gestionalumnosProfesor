@@ -78,6 +78,15 @@ public class CursoServiceImp implements CursoService {
 
 	@Override
 	public void darDeBaja(Alumno alumno) {
+		int codigo  = alumno.getCurso().getCodigo();
+		Curso curso1 = alumno.getCurso();
+
+		Curso curso = getById(codigo);
+		Map<String, Alumno> alumnos = curso.getAlumnos();
+		alumnos.remove(alumno.getDni());
+		curso.setAlumnos(alumnos);
+		update(curso);
+		
 		
 		
 	}

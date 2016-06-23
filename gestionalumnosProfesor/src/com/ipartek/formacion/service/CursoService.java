@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.ipartek.formacion.pojo.Alumno;
 import com.ipartek.formacion.pojo.Curso;
-import com.ipartek.formacion.pojo.Modulo;
+
 
 public interface CursoService {
 	/*

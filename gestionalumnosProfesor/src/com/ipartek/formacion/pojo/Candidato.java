@@ -2,6 +2,8 @@ package com.ipartek.formacion.pojo;
 
 import java.util.Date;
 
+import com.ipartek.formacion.pojo.exception.CandidatoException;
+
 /**
  * 
  * @author va00
@@ -61,7 +63,13 @@ public class Candidato {
 		return fNacimiento;
 	}
 	public void setfNacimiento(Date fNacimiento) {
-		this.fNacimiento = fNacimiento;
+		if(fNacimiento.compareTo(new Date())>0){
+			new CandidatoException(CandidatoException.CODIGO_ERROR_FECHA_NACIMIENTO,CandidatoException.MSG_ERROR_FECHA_NACIMIENTO);
+		}else{
+			this.fNacimiento = fNacimiento;
+		}
+		
+		
 	}
 	public String getDni() {
 		return dni;
