@@ -1,11 +1,12 @@
 package com.ipartek.formacion.service;
 
 public class Util {
+	private static final int LONGITUD_DNI = 9;
 	public static boolean validarDni(String dni){
 		boolean valido = false;
 		dni = dni.toUpperCase();
 		
-		int nDni = Integer.parseInt(dni.substring(0, dni.length()-1));
+		int nDni = Integer.parseInt(dni.substring(0, LONGITUD_DNI-1));
 		char lDni = dni.substring(dni.length()-2, dni.length()-1).charAt(0);
 		if(calcularLetra(nDni)==lDni){
 			valido = true;

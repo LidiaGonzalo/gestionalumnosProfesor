@@ -4,6 +4,8 @@ public class CandidatoException extends Exception{
 
 	public static final int CODIGO_ERROR_FECHA_NACIMIENTO = 100;
 	public static final String MSG_ERROR_FECHA_NACIMIENTO ="La fecha introducida no es válida";
+	public static final int CODIGO_ERROR_DNI_INCORRECTO = 200;
+	public static final String MSG_ERROR_DNI_INCORRECTO ="El DNI introducido no es válido";
 	private int codigo;
 	private String mensaje;
 	public CandidatoException(int codigo, String mensaje) {

@@ -27,5 +27,10 @@ public class AlumnoServiceException extends Exception{
 		super(cause);
 		// TODO Auto-generated constructor stub
 	}
+	@Override
+	public String getMessage() {
+		// TODO Auto-generated method stub
+		return this.mensaje;
+	}
 	
 }

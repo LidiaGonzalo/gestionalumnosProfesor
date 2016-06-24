@@ -3,6 +3,7 @@ package com.ipartek.formacion.pojo;
 import java.util.Date;
 
 import com.ipartek.formacion.pojo.exception.CandidatoException;
+import com.ipartek.formacion.service.Util;
 
 /**
  * 
@@ -35,13 +36,13 @@ public class Candidato {
 		setCodigo(CODIGO_ALUMNO);
 		setNombre("");
 		setApellidos("");
-		setDni("");
+		this.dni ="";
 		setfNacimiento(new Date());
 		setNota(0.0);
 
 	}
 	
-	
+
 	public int getCodigo() {
 		return codigo;
 	}
@@ -75,8 +76,13 @@ public class Candidato {
 	public String getDni() {
 		return dni;
 	}
-	public void setDni(String dni) {
-		this.dni = dni;
+	public void setDni(String dni) throws CandidatoException {
+		if(!Util.validarDni(dni)){
+		 throw new CandidatoException(CandidatoException.CODIGO_ERROR_DNI_INCORRECTO, CandidatoException.MSG_ERROR_DNI_INCORRECTO);	
+		}else{
+			this.dni = dni;
+		}
+		
 	}
 
 

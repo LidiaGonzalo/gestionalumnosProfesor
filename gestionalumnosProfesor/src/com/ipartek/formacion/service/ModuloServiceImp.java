@@ -37,8 +37,7 @@ public class ModuloServiceImp implements ModuloService{
 		try {
 			modulo = this.modulos.get(getIndex(codigo));
 		} catch (ModuloServiceException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			modulo = new Modulo();
 		}
 		return modulo;
 	}
