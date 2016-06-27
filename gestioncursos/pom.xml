@@ -6,7 +6,9 @@
   	<packaging>war</packaging>
   	<name>Gestion Cursos</name>
   	<description>Este proyecto permitira la gestion de cursos, alumnos, con sus altas, bajas y modificaciones.</description>
-	
+	<properties>
+   		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+ 	</properties>
 	<dependencies>
 	    <dependency>
 			<groupId>javax.servlet</groupId>
