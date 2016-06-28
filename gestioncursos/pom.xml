@@ -24,11 +24,9 @@
     	</dependency>
  	 </dependencies>
   	<build>
-  	<!-- 
 	  	<filters>
 	        <filter>src/main/resources/database.properties</filter>
 	    </filters>
- -->
   		<pluginManagement>
 	  		 <plugins>
 	    		<plugin>
