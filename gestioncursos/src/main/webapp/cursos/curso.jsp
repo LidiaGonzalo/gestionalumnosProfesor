@@ -35,10 +35,12 @@
 			<form name="" id="" method='post' 
 				action="<%=Constantes.SERVLET_CURSOS%>">
 				<input type="hidden" 
-					id="<%=Constantes.PAR_OPERACION %>" 
+					id="<%=Constantes.PAR_OPERACION %>"
+					name="<%=Constantes.PAR_CODIGO %>"  
 					value="<%=op %>"/>
 				<input type="hidden" 
 					id="<%=Constantes.PAR_CODIGO %>" 
+					name="<%=Constantes.PAR_CODIGO %>" 
 					value="<%=curso.getCodigo()%>"/>
 				<label for="<%=Constantes.PAR_NOMBRE%>"></label>
 				<input type="text" 
