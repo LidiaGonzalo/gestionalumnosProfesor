@@ -6,7 +6,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
+
+		<meta charset="UTF-8" />
 		<%
 		Curso curso = (Curso) request.getAttribute(Constantes.ATT_CURSO);
 		int op = -1;
