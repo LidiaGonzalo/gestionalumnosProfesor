@@ -79,7 +79,7 @@ public class ModuloServiceImp implements ModuloService{
 	@Override
 	public Modulo update(Modulo modulo) {
 		try {
-			this.modulos.add(getIndex(modulo.getCodigo()), modulo);
+			this.modulos.set(getIndex(modulo.getCodigo()), modulo);
 		} catch (ModuloServiceException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

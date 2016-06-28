@@ -60,7 +60,7 @@ public class CursoServiceImp implements CursoService {
 	@Override
 	public Curso update(Curso curso) {
 		try {
-			this.cursos.add(getIndex(curso.getCodigo()), curso);
+			this.cursos.set(getIndex(curso.getCodigo()), curso);
 		} catch (CursoServiceException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

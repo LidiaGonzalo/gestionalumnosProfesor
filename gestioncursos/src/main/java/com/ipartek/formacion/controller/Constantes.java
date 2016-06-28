@@ -15,6 +15,7 @@ public class Constantes {
 		
 	public final static String PAR_CODIGO= "codigo";
 	public final static String PAR_NOMBRE ="nombre";
+	public final static String PAR_OPERACION ="operacion";
 	
 	public final static String SERVLET_CURSOS ="cursos.do";
 	public final static String SERVLET_ALUMNOS ="alumnos.do";
@@ -24,4 +25,9 @@ public class Constantes {
 	
 	public final static String JSP_LISTADO_ALUMNOS ="/alumnos/listado.jsp";
 	public final static String JSP_ALUMNO ="/alumnos/alumno.jsp";
+	
+	public final static int OP_CREATE = 0;
+	public final static int OP_READ = 1;
+	public final static int OP_UPDATE = 2;
+	public final static int OP_DELETE = 3;
 }

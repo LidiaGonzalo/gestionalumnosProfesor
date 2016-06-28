@@ -19,6 +19,7 @@ import com.ipartek.formacion.service.CursoServiceImp;
 public class CursoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private int id = -1;
+    private int operacion = -1;
     private RequestDispatcher rd = null;
     private CursoService cService = new CursoServiceImp();
     private List<Curso> cursos = null;
@@ -27,9 +28,9 @@ public class CursoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String codigo  = request.getParameter(Constantes.PAR_CODIGO);
+		
 		try{
-			id = Integer.parseInt(codigo);
+			recogerId(request);
 			getById(request);
 		} catch(Exception e){
 			getAll(request);
@@ -42,7 +43,7 @@ public class CursoServlet extends HttpServlet {
 	
 		curso = cService.getById(id);
 		request.setAttribute(Constantes.ATT_ALUMNO, curso);
-		rd = request.getRequestDispatcher(Constantes.JSP_ALUMNO);
+		rd = request.getRequestDispatcher(Constantes.JSP_CURSO);
 	}
 
 	private void getAll(HttpServletRequest request) {
@@ -56,7 +57,46 @@ public class CursoServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		//Procesaremos el DELETE, UPDATE y CREATE
+		//1º recoger datos del objeto curso
+		String op = request.getParameter(Constantes.PAR_OPERACION);
+		try{
+			
+			operacion = Integer.parseInt(op);
+		
+			switch(operacion){
+				case Constantes.OP_CREATE:
+					recogerDatos(request);
+					cService.create(curso);
+				break;
+				case Constantes.OP_DELETE:
+					recogerId(request);
+					cService.delete(curso.getCodigo());
+				break;
+				case Constantes.OP_UPDATE:
+					recogerDatos(request);
+					cService.update(curso);
+				break;
+			}
+		} catch (NumberFormatException e){
+			//TODO alguien nos toquetea los argumentos del form
+		}
+		
+		getAll(request);
+		rd.forward(request, response);
+	}
+
+	private void recogerId(HttpServletRequest request) {
+		id = Integer.parseInt(request.getParameter(Constantes.PAR_CODIGO));
+		
+	}
+
+	private void recogerDatos(HttpServletRequest request) {
+		curso = new Curso();
+		recogerId(request);
+		curso.setCodigo(id);
+		String nombre = request.getParameter(Constantes.PAR_NOMBRE);
+		curso.setNombre(nombre);
 	}
 
 }

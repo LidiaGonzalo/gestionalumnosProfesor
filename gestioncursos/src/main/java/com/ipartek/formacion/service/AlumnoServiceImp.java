@@ -134,7 +134,7 @@ public class AlumnoServiceImp implements AlumnoService{
 		int index;
 		try {
 			index = getIndex(alumno.getCodigo());
-			this.alumnos.add(index, alumno);
+			this.alumnos.set(index, alumno);
 		} catch (AlumnoServiceException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

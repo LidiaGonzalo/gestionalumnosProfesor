@@ -77,7 +77,8 @@ public class Candidato {
 		return dni;
 	}
 	public void setDni(String dni) throws CandidatoException {
-		if(!Util.validarDni(dni)){
+		//Util.validarDni(dni)
+		if(false){
 		 throw new CandidatoException(CandidatoException.CODIGO_ERROR_DNI_INCORRECTO, CandidatoException.MSG_ERROR_DNI_INCORRECTO);	
 		}else{
 			this.dni = dni;
