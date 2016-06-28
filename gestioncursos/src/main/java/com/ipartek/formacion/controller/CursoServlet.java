@@ -43,7 +43,7 @@ public class CursoServlet extends HttpServlet {
 	
 		curso = cService.getById(id);
 		System.out.println(curso.getCodigo());
-		request.setAttribute(Constantes.ATT_ALUMNO, curso);
+		request.setAttribute(Constantes.ATT_CURSO, curso);
 		rd = request.getRequestDispatcher(Constantes.JSP_CURSO);
 	}
 

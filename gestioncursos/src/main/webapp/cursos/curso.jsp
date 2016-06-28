@@ -8,7 +8,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<%
-		Curso curso = (Curso) request.getAttribute("curso");
+		Curso curso = (Curso) request.getAttribute(Constantes.ATT_CURSO);
 		int op = -1;
 		if(curso!=null){
 			op = Constantes.OP_UPDATE;
@@ -32,11 +32,12 @@
 		<%
 		if(curso!=null){
 		%>
+		<%=Constantes.SERVLET_CURSOS%>
 			<form name="" id="" method='post' 
 				action="<%=Constantes.SERVLET_CURSOS%>">
 				<input type="hidden" 
 					id="<%=Constantes.PAR_OPERACION %>"
-					name="<%=Constantes.PAR_CODIGO %>"  
+					name="<%=Constantes.PAR_OPERACION %>"  
 					value="<%=op %>"/>
 				<input type="hidden" 
 					id="<%=Constantes.PAR_CODIGO %>" 

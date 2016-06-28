@@ -12,7 +12,7 @@
 	<body>
 		<div id="wrapper">
 		<a href="index.jsp">Atras</a>
-			<a href="curso.jsp">Añadir Curso Nuevo</a> 
+			<a href="cursos/curso.jsp">Añadir Curso Nuevo</a> 
 		
 		
 		<%		
