@@ -24,7 +24,6 @@
       		<scope>test</scope>
     	</dependency>
  	 </dependencies>
- 	 
   	<build>
   		<pluginManagement>
 	  		 <plugins>
@@ -50,4 +49,7 @@
 		</pluginManagement>
     	<finalName>gestioncursos</finalName>
   	</build>
+  	<organization>
+  		<name>Ipartek</name>
+  	</organization>
 </project>
