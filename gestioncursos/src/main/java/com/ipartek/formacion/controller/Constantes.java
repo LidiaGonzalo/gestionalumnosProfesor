@@ -15,6 +15,9 @@ public class Constantes {
 		
 	public final static String PAR_CODIGO= "codigo";
 	public final static String PAR_NOMBRE ="nombre";
+	
+	public final static String PAR_DNI = "dni";
+	public final static String PAR_APELLIDOS = "apellidos";
 	public final static String PAR_OPERACION ="operacion";
 	
 	public final static String SERVLET_CURSOS ="cursos.do";

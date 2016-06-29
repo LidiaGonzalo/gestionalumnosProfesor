@@ -1,3 +1,4 @@
+<%@page import="com.ipartek.formacion.controller.Constantes"%>
 <%@page import="com.ipartek.formacion.pojo.Alumno"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -18,7 +19,7 @@
 			if(alumnos!=null){
 				int i=1;
 				for(Alumno alumno: alumnos){
-					out.write("<p><a href='alumnos.do?id=" + alumno.getCodigo() + "'>Alumno " + i + ": " + alumno.getNombre() + " " + alumno.getApellidos() + "</a></p>");
+					out.write("<p><a href='alumnos.do?"+Constantes.PAR_CODIGO+"=" + alumno.getCodigo() + "'>Alumno " + i + ": " + alumno.getNombre() + " " + alumno.getApellidos() + "</a></p>");
 					i++;
 				}
 			}
