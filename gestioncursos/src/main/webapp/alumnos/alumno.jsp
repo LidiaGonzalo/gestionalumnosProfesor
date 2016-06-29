@@ -1,11 +1,8 @@
+<%@page import="com.ipartek.formacion.controller.exception.AlumnoError"%>
 <%@page import="com.ipartek.formacion.pojo.Alumno"%>
 <%@page import="com.ipartek.formacion.pojo.Curso"%>
 <%@page import="com.ipartek.formacion.controller.Constantes"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-	<head>
+<%@include file="../includes/header.jsp" %>
 	<%
 		Alumno alumno = (Alumno) request.getAttribute(Constantes.ATT_ALUMNO);
 		int op = -1;
@@ -16,14 +13,16 @@
 			alumno = new Alumno();
 		}
 	%>
-		<meta charset="UTF-8">
-		<title>Alumno</title>
-	</head>
-	<body>
 		<a href="<%=Constantes.SERVLET_ALUMNOS%>">Atras</a>
 	
 		<div id="wrapper">
-	
+		<%
+		if(alumno instanceof AlumnoError){
+			AlumnoError aux = (AlumnoError) alumno;
+			out.write(aux.getMensaje());
+		}
+		
+		%>
 
 		
 		<%
@@ -67,5 +66,4 @@
 	<%	}
 		%>
 		</div>
-	</body>
-</html>
+<%@include file="../includes/footer.jsp" %>

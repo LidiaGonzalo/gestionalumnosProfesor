@@ -18,15 +18,15 @@ public class Candidato {
 	/**
 	 * 
 	 */
-	private int codigo;
+	protected int codigo;
 	/**
 	 * 
 	 */
-	private String nombre;
-	private String apellidos;
-	private Date fNacimiento;
-	private String dni;
-	private Double nota;
+	protected String nombre;
+	protected String apellidos;
+	protected Date fNacimiento;
+	protected String dni;
+	protected Double nota;
 	/**
 	 * @throws CandidatoException 
 	 * 

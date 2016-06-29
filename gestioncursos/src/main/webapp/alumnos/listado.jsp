@@ -1,16 +1,7 @@
 <%@page import="com.ipartek.formacion.controller.Constantes"%>
 <%@page import="com.ipartek.formacion.pojo.Alumno"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Listado Alumnos</title>
-	</head>
-	
-	<body>
+<%@include file="../includes/header.jsp" %>
 		<a href="index.jsp">Atras</a>
 		<br/>
 		
@@ -24,5 +15,4 @@
 				}
 			}
 		%>
-	</body>
-</html>
+<%@include file="../includes/footer.jsp" %>

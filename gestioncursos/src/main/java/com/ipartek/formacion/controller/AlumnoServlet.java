@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.controller.exception.AlumnoError;
 import com.ipartek.formacion.pojo.Alumno;
 import com.ipartek.formacion.pojo.Curso;
 import com.ipartek.formacion.pojo.exception.CandidatoException;
@@ -65,32 +66,57 @@ public class AlumnoServlet extends HttpServlet {
 		try {
 			operacion = Integer.parseInt(op);
 			recogerId(request);
-			recogerDatosAlumno(request);
 			switch (operacion) {
 			case Constantes.OP_CREATE:
+				recogerDatosAlumno(request);
 				aService.createAlumno(alumno);
 				break;
 			case Constantes.OP_DELETE:
 				aService.delete(id);
 				break;
 			case Constantes.OP_UPDATE:
+				recogerDatosAlumno(request);
 				aService.update(alumno);
 				break;
-
 			default:
 				break;
 			}
+			getAll(request);
 		} catch (NumberFormatException e){
 			
 		} catch(NullPointerException e){
 			
 		} catch(CandidatoException e){
-			//Hay un error en los datos que se nos envian
+			try {
+				AlumnoError alumnoError = new AlumnoError();
+				alumnoError = recogerDatosError(request);
+				alumnoError.setMensaje(e.getMessage());
+				request.setAttribute(Constantes.ATT_ALUMNO, alumnoError);
+				rd = request.getRequestDispatcher(Constantes.JSP_ALUMNO);
+			} catch (CandidatoException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			
 		}
 		catch(Exception e){
-			getAll(request);
-			rd.forward(request, response);
+			
+			
 		}
+		rd.forward(request, response);
+	}
+
+	private AlumnoError recogerDatosError(HttpServletRequest request) throws CandidatoException {
+		AlumnoError alError = new AlumnoError();
+		String nombre = request.getParameter(Constantes.PAR_NOMBRE);
+		String dni = request.getParameter(Constantes.PAR_DNI);
+		String apellidos = request.getParameter(Constantes.PAR_APELLIDOS);
+		alError.setCodigo(id);
+		alError.setNombre(nombre);
+		alError.setDni(dni);
+		alError.setApellidos(apellidos);
+		return alError;
 	}
 
 	private void recogerDatosAlumno(HttpServletRequest request) throws CandidatoException {
