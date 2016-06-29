@@ -72,7 +72,7 @@ public class CursoServlet extends HttpServlet {
 				break;
 				case Constantes.OP_DELETE:
 					recogerId(request);
-					cService.delete(curso.getCodigo());
+					cService.delete(id);
 				break;
 				case Constantes.OP_UPDATE:
 					recogerDatos(request);

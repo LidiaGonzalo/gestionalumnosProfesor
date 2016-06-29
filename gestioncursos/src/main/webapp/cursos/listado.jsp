@@ -19,8 +19,24 @@
 			List<Curso> cursos = (List<Curso>) request.getAttribute("listado_cursos");
 			if(cursos!=null){
 				int i=1;
+				String formulario ="";
 				for(Curso curso: cursos){
-					out.write("<p><a href='cursos.do?"+Constantes.PAR_CODIGO+"=" + curso.getCodigo() + "'>Curso " + i + ": " + curso.getNombre() + "</a></p>");
+					formulario = "<form action='"+Constantes.SERVLET_CURSOS
+							+"' method='post'>";
+					//la variable opercion
+					formulario +="<input type='hidden' "+
+							"name='"+Constantes.PAR_OPERACION+
+							"' value='"+Constantes.OP_DELETE+"'/>";
+					//la variable del codigo del curso
+					formulario +="<input type='hidden' "+
+							"name='"+Constantes.PAR_CODIGO+
+							"' value='"+curso.getCodigo()+"'/>";
+					//el boton de borrar
+					formulario +="<input type='submit' value='Borrar'";
+					formulario +="</form>";
+					out.write("<div><a href='cursos.do?"+Constantes.PAR_CODIGO
+							+"=" + curso.getCodigo() + "'>Curso " + i + ": " 
+							+ curso.getNombre() + "</a>"+formulario+"</div>");
 					i++;
 				}
 			}
