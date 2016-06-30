@@ -1,11 +1,10 @@
 <%@page import="com.ipartek.formacion.controller.Constantes"%>
 <%@page import="com.ipartek.formacion.pojo.Curso"%>
 <%@page import="java.util.List"%>
-
-		<%@ include file="../includes/header.jsp" %>
-		<div id="wrapper">
+<jsp:include page="../includes/header.jsp"/> 
+<main>
 		<a href="index.jsp">Atras</a>
-			<a href="cursos/curso.jsp">Añadir Curso Nuevo</a> 
+		<a href="<%=Constantes.SERVLET_CURSOS+"?"+Constantes.PAR_CODIGO+"="+Curso.CODIGO_CURSO%>">Añadir Curso Nuevo</a> 
 		
 		
 		<%		
@@ -34,6 +33,5 @@
 				}
 			}
 		%>
-		</div>
-	</body>
-</html>
+</main>
+<%@ include file="../includes/footer.jsp" %>

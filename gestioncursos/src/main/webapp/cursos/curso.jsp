@@ -1,7 +1,7 @@
 <%@page import="com.ipartek.formacion.controller.Constantes"%>
 <%@page import="com.ipartek.formacion.pojo.Curso"%>
 <%@page import="java.util.List"%>
-		<%@ include file="../includes/header.jsp" %>	
+<jsp:include page="../includes/header.jsp"/>	
 
 		<%
 		Curso curso = (Curso) request.getAttribute(Constantes.ATT_CURSO);
@@ -49,6 +49,4 @@
 			
 	<%	}
 		%>
-		</div>
-	</body>
-</html>
+<%@ include file="../includes/footer.jsp" %>
