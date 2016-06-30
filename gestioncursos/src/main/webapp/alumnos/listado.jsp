@@ -1,12 +1,14 @@
 <%@page import="com.ipartek.formacion.controller.Constantes"%>
 <%@page import="com.ipartek.formacion.pojo.Alumno"%>
 <%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp" %>
 		<a href="index.jsp">Atras</a> <a 
 				href="<%=Constantes.SERVLET_ALUMNOS+"?"+
 						Constantes.PAR_CODIGO+"="+
 						Alumno.CODIGO_ALUMNO%>">
-				Añadir Alumno nuevo
+				AÃ±adir Alumno nuevo
 				</a>
 		
 		
