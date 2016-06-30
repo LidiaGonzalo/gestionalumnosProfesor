@@ -7,8 +7,7 @@
 <main>
 		<a href="index.jsp">Atras</a>
 		<a href="<%=Constantes.SERVLET_CURSOS+"?"+Constantes.PAR_CODIGO+"="+Curso.CODIGO_CURSO%>">Añadir Curso Nuevo</a> 
-		
-		
+
 		<%		
 			List<Curso> cursos = (List<Curso>) request.getAttribute("listado_cursos");
 			if(cursos!=null){
@@ -28,9 +27,16 @@
 					//el boton de borrar
 					formulario +="<input type='submit' value='Borrar'";
 					formulario +="</form>";
-					out.write("<div><a href='cursos.do?"+Constantes.PAR_CODIGO
-							+"=" + curso.getCodigo() + "'>Curso " + i + ": " 
-							+ curso.getNombre() + "</a>"+formulario+"</div>");
+					%>
+					<div>
+						<a href='<%=Constantes.SERVLET_CURSOS %>
+							?<%=Constantes.PAR_CODIGO%>
+							"="<%=curso.getCodigo()  %>'>
+							<%=curso.getNombre() %>
+						</a>
+						<%=formulario %>						
+					</div>
+					<%
 					i++;
 				}
 			}
