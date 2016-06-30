@@ -34,8 +34,14 @@ public class AlumnoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try{
+			
 			recogerId(request);
-			getById(request);
+			if(id < 0){//REDIGIRIMOS PARA UN CREATE
+				rd = request.getRequestDispatcher(Constantes.JSP_ALUMNO);
+			}else{//REDIGIMOS PARA UNA UPDATE
+				getById(request);
+			}
+			
 		}catch(Exception e){
 			getAll(request);
 		}
