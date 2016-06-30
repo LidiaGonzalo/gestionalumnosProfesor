@@ -31,7 +31,7 @@
 					<div>
 						<a href='<%=Constantes.SERVLET_CURSOS %>
 							?<%=Constantes.PAR_CODIGO%>
-							"="<%=curso.getCodigo()  %>'>
+							+"="<%=curso.getCodigo()  %>'>
 							<%=curso.getNombre() %>
 						</a>
 						<%=formulario %>						
@@ -40,6 +40,6 @@
 					i++;
 				}
 			}
-		%>
+	%>
 </main>
 <%@ include file="../includes/footer.jsp" %>
