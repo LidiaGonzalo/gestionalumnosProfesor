@@ -8,6 +8,7 @@
 	<meta charset="UTF-8">
 	<title>Gestion de Cursos </title>
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/styles.css"/>
 	 <!--[if lt IE 9]>
 	   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
