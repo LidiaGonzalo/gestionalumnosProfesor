@@ -9,9 +9,10 @@ public class Constantes {
 	
 	public final static String ATT_LISTADO_ALUMNOS ="listado_alumnos";
 	public final static String ATT_ALUMNO ="alumno";
+
 	
-	public final static String ATT_LISTADO_MODULOS = "";
-	public final static String ATT_MODULO = "";
+	public final static String ATT_LISTADO_MODULOS = "listado_modulos";
+	public final static String ATT_MODULO = "modulo";
 		
 	public final static String PAR_CODIGO= "codigo";
 	public final static String PAR_NOMBRE ="nombre";
@@ -22,12 +23,17 @@ public class Constantes {
 	
 	public final static String SERVLET_CURSOS ="cursos.do";
 	public final static String SERVLET_ALUMNOS ="alumnos.do";
+	public final static String SERVLET_MODULOS ="modulos.do";
+	
 	
 	public final static String JSP_LISTADO_CURSOS ="/cursos/listado.jsp";
 	public final static String JSP_CURSO ="/cursos/curso.jsp";
 	
 	public final static String JSP_LISTADO_ALUMNOS ="/alumnos/listado.jsp";
 	public final static String JSP_ALUMNO ="/alumnos/alumno.jsp";
+	
+	public final static String JSP_LISTADO_MODULOS ="/alumnos/listado.jsp";
+	public final static String JSP_MODULO ="/alumnos/alumno.jsp";
 	
 	public final static int OP_CREATE = 0;
 	public final static int OP_READ = 1;

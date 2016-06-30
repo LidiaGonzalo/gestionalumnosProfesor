@@ -1,11 +1,12 @@
 <%@page import="com.ipartek.formacion.controller.Constantes"%>
 <%@page import="com.ipartek.formacion.pojo.Curso"%>
 <%@page import="java.util.List"%>
-
-		<%@ include file="../includes/header.jsp" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="UTF-8"%>
+<%@include file="../includes/header.jsp" %>
 		<div id="wrapper">
 		<a href="index.jsp">Atras</a>
-			<a href="cursos/curso.jsp">Añadir Curso Nuevo</a> 
+			<a href="cursos/curso.jsp">AÃ±adir Curso Nuevo</a> 
 		
 		
 		<%		

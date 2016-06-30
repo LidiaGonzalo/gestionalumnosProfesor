@@ -1,16 +1,15 @@
 <%@page import="com.ipartek.formacion.controller.Constantes"%>
 <%@page import="com.ipartek.formacion.pojo.Curso"%>
 <%@page import="java.util.List"%>
-		<%@ include file="../includes/header.jsp" %>	
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@include file="../includes/header.jsp" %>
 		<%
 		Curso curso = (Curso) request.getAttribute(Constantes.ATT_CURSO);
 		int op = -1;
 		if(curso!=null){
 			op = Constantes.OP_UPDATE;
-
 		}else{
-
 			curso = new Curso();
 			op = Constantes.OP_CREATE;
 		}
