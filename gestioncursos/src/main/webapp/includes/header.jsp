@@ -4,28 +4,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
 	<title>Gestion de Cursos </title>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/styles.css"/>
 	 <!--[if lt IE 9]>
 	   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	 <![endif]-->
 </head>
-<body>
-	<header><h1>Ipartek - Gestion de Cursos</h1></header>
+<body class="container-fluid">
+	<header class="row"><h1 class="col-xs-12">Ipartek - Gestion de Cursos</h1></header>
 	<nav>
-		<ul>
-			<li>
+		<ul class="row">
+			<li class="col-xs-4 col-md-2">
 				<a href="<%=Constantes.SERVLET_CURSOS%>">
 					Ver todos los cursos
 				</a>
 			</li>
-			<li>
+			<li class="col-xs-4 col-md-2">
 				<a href="<%=Constantes.SERVLET_ALUMNOS%>">
 					Ver todos los alumnos
 				</a>
 			</li>
-			<li>
+			<li class="col-xs-4 col-md-2">
 				<a href="<%=Constantes.SERVLET_MODULOS%>">
 					Ver todos los modulos
 				</a>

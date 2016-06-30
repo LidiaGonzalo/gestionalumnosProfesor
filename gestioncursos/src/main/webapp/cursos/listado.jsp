@@ -5,8 +5,16 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="../includes/header.jsp"/> 
 <main>
-		<a href="index.jsp">Atras</a>
-		<a href="<%=Constantes.SERVLET_CURSOS+"?"+Constantes.PAR_CODIGO+"="+Curso.CODIGO_CURSO%>">Añadir Curso Nuevo</a> 
+<!-- 
+warning -> Naranja
+danger  -> Rojo
+info    -> Azul claro
+succes  -> verde
+default -> blanco
+primary -> Azul oscuro
+ -->
+		<a class="btn btn-warning" href="index.jsp">Atras</a>
+		<a class="btn btn-success" href="<%=Constantes.SERVLET_CURSOS+"?"+Constantes.PAR_CODIGO+"="+Curso.CODIGO_CURSO%>">+ Añadir Curso Nuevo</a> 
 
 		<%		
 			List<Curso> cursos = (List<Curso>) request.getAttribute("listado_cursos");
