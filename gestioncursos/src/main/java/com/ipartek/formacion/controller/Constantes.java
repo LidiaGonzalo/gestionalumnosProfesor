@@ -25,6 +25,8 @@ public class Constantes {
 	public final static String PAR_MES ="mes";
 	public final static String PAR_DIA ="dia";
 	public final static String PAR_ANYO ="anyo";
+	public final static String PAR_GENERO="genero";
+	public final static String PAR_IDIOMA ="idioma";
 	
 	public final static String SERVLET_CURSOS ="cursos.do";
 	public final static String SERVLET_ALUMNOS ="alumnos.do";

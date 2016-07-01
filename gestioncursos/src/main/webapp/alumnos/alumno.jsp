@@ -1,3 +1,5 @@
+<%@page import="com.ipartek.formacion.pojo.Idioma"%>
+<%@page import="com.ipartek.formacion.pojo.Genero"%>
 <%@page import="java.util.GregorianCalendar"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
@@ -85,7 +87,7 @@
 
 				GregorianCalendar calendar = new GregorianCalendar();
 				calendar.setTime(alumno.getfNacimiento());
-			
+											
 				%>
 						<div class="row">
 							<div class="col-xs-3">
@@ -104,7 +106,40 @@
 						</div>
 					</div> 
 				</div>
-				<div class="">
+				<div class="form-group">
+					<label class="col-xs-2">Genero:</label>
+					<div class="col-xs-10">
+						<input type="radio" name="<%=Constantes.PAR_GENERO %>" id=""
+							<%= Genero.MASCULINO == alumno.getGenero() ? "checked" : "" %> 
+							 value="<%=Genero.MASCULINO.getCodigo() %>"/> 
+							<%=Genero.MASCULINO.getValor() %>
+						<input type="radio" name="<%=Constantes.PAR_GENERO %>" id="" 
+							<%= Genero.FEMENINO == alumno.getGenero() ? "checked" : "" %>
+							value="<%=Genero.FEMENINO.getCodigo() %>"/> 
+							<%=Genero.FEMENINO.getValor() %>
+						<input type="radio" name="<%=Constantes.PAR_GENERO %>" id="" 
+							<%= Genero.OTROS == alumno.getGenero() ? "checked" : "" %>
+							value="<%=Genero.OTROS.getCodigo() %>"/> 
+							<%=Genero.OTROS.getValor() %>															
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-2">Idiomas:</label>
+					<div class="col-xs-10">
+				
+						<input type="checkbox" name="<%=Constantes.PAR_IDIOMA %>" id=""
+							<%= alumno.getIdiomas().contains(Idioma.CASTELLANO) ? "checked" : "" %> 
+							 value="<%=Idioma.CASTELLANO.getCodigo() %>"/> 
+							<%=Idioma.CASTELLANO.getNombre() %>
+						<input type="checkbox" name="<%=Constantes.PAR_IDIOMA %>" id="" 
+							<%= alumno.getIdiomas().contains(Idioma.EUSKERA) ? "checked" : "" %>
+							value="<%=Idioma.EUSKERA.getCodigo() %>"/> 
+							<%=Idioma.EUSKERA.getNombre() %>
+						<input type="checkbox" name="<%=Constantes.PAR_IDIOMA %>" id="" 
+							<%= alumno.getIdiomas().contains(Idioma.INGLES)  ? "checked" : "" %>
+							value="<%=Idioma.INGLES.getCodigo() %>"/> 
+							<%=Idioma.INGLES.getNombre() %>															
+					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-xs-10">
