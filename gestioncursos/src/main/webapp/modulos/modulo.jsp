@@ -14,10 +14,8 @@
 			op = Constantes.OP_CREATE;
 		}
 		%>
-		<div id="wrapper">
+<main class="row">
 		<a href="<%=Constantes.SERVLET_CURSOS %>">Atras</a>
-
-		
 		<%
 		if(curso!=null){
 		%>
@@ -40,14 +38,9 @@
 					/>
 			
 				<input type="submit" />
-			</form>
-			
-			
-			
-			
-			
-	<%	}
+			</form>	
+	<%	
+	}
 		%>
-		</div>
-	</body>
-</html>
+</main>
+<%@ include file="../includes/footer.jsp" %>

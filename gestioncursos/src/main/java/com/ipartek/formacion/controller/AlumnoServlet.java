@@ -54,7 +54,8 @@ public class AlumnoServlet extends HttpServlet {
 
 	private void getAll(HttpServletRequest request) {
 		alumnos = aService.getAll();
-		request.setAttribute(Constantes.ATT_LISTADO_CURSOS, alumnos);
+		System.out.println(alumnos.size());
+		request.setAttribute(Constantes.ATT_LISTADO_ALUMNOS, alumnos);
 		rd = request.getRequestDispatcher(Constantes.JSP_LISTADO_ALUMNOS);
 	}
 

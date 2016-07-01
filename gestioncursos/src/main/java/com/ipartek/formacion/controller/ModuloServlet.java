@@ -34,7 +34,11 @@ public class ModuloServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try{
-			recogerId(request);
+			if(id < 0){
+				rd = request.getRequestDispatcher(Constantes.JSP_MODULO);	
+			}else{                       
+				recogerId(request);
+			}
 			getById(request);
 		} catch(Exception e){
 			getAll(request);
@@ -42,18 +46,15 @@ public class ModuloServlet extends HttpServlet {
 		rd.forward(request, response);
 	}
 	private void getById(HttpServletRequest request) {
-		
 		modulo = mService.getById(id);
-		
 		request.setAttribute(Constantes.ATT_MODULO, modulo);
 		rd = request.getRequestDispatcher(Constantes.JSP_MODULO);
 	}
 
 	private void getAll(HttpServletRequest request) {
-
 		modulos = mService.getAll();
 		request.setAttribute(Constantes.ATT_LISTADO_MODULOS, modulos);
-		rd = request.getRequestDispatcher(Constantes.JSP_LISTADO_CURSOS);
+		rd = request.getRequestDispatcher(Constantes.JSP_LISTADO_MODULOS);
 	}
 	private void recogerId(HttpServletRequest request) {
 		id = Integer.parseInt(request.getParameter(Constantes.PAR_CODIGO));

@@ -4,7 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="../includes/header.jsp"/>	
-
+<main>
 		<%
 		Curso curso = (Curso) request.getAttribute(Constantes.ATT_CURSO);
 		int op = -1;
@@ -59,4 +59,5 @@
 			
 	<%	}
 		%>
+</main>
 <%@ include file="../includes/footer.jsp" %>

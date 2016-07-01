@@ -31,7 +31,12 @@ public class CursoServlet extends HttpServlet {
 		
 		try{
 			recogerId(request);
-			getById(request);
+			if(id<0){
+				rd = request.getRequestDispatcher(Constantes.JSP_CURSO);
+			}else{
+				getById(request);
+			}
+			
 		} catch(Exception e){
 			getAll(request);
 		}

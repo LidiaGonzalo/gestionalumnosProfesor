@@ -1,21 +1,19 @@
+<%@page import="com.ipartek.formacion.pojo.Modulo"%>
 <%@page import="com.ipartek.formacion.controller.Constantes"%>
-<%@page import="com.ipartek.formacion.pojo.Curso"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="UTF-8"%>
-<%@include file="../includes/header.jsp" %>
-		<div id="wrapper">
-		<a href="index.jsp">Atras</a>
-			<a href="cursos/curso.jsp">Añadir Curso Nuevo</a> 
-		
-		
+<jsp:include page="../includes/header.jsp"/> 
+<main>
+	<a class="btn btn-warning" href="index.jsp">Atras</a>
+	<a class="btn btn-success" href="<%=Constantes.SERVLET_MODULOS%>?<%=Constantes.PAR_CODIGO%>=<%=Modulo.CODIGO_MODULO%>">Añadir Modulo Nuevo</a> 
 		<%		
-			List<Curso> cursos = (List<Curso>) request.getAttribute("listado_cursos");
-			if(cursos!=null){
+			List<Modulo> modulos = (List<Modulo>) request.getAttribute(Constantes.ATT_LISTADO_MODULOS);
+			if(modulos!=null){
 				int i=1;
 				String formulario ="";
-				for(Curso curso: cursos){
-					formulario = "<form action='"+Constantes.SERVLET_CURSOS
+				for(Modulo modulo: modulos){
+					formulario = "<form action='"+Constantes.SERVLET_MODULOS
 							+"' method='post'>";
 					//la variable opercion
 					formulario +="<input type='hidden' "+
@@ -24,17 +22,22 @@
 					//la variable del codigo del curso
 					formulario +="<input type='hidden' "+
 							"name='"+Constantes.PAR_CODIGO+
-							"' value='"+curso.getCodigo()+"'/>";
+							"' value='"+modulo.getCodigo()+"'/>";
 					//el boton de borrar
-					formulario +="<input type='submit' value='Borrar'";
+formulario +="<button type='submit' class='btn btn-danger'>Borrar</button>";
 					formulario +="</form>";
-					out.write("<div><a href='cursos.do?"+Constantes.PAR_CODIGO
-							+"=" + curso.getCodigo() + "'>Curso " + i + ": " 
-							+ curso.getNombre() + "</a>"+formulario+"</div>");
-					i++;
+					%>
+				<div class="row">
+					<a class="col-xs-10 col-md-6" href='<%=Constantes.SERVLET_MODULOS %>
+						?<%=Constantes.PAR_CODIGO%>
+						=<%=modulo.getCodigo()  %>'>
+						<%=modulo.getNombre() %>
+					</a>
+					<%=formulario %>						
+				</div>
+				<%
 				}
 			}
 		%>
-		</div>
-	</body>
-</html>
+</main>
+<%@ include file="../includes/footer.jsp" %>
