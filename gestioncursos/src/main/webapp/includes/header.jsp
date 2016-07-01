@@ -1,3 +1,4 @@
+<%@page import="com.ipartek.formacion.pojo.Modulo"%>
 <%@page import="com.ipartek.formacion.controller.Constantes"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -24,22 +25,40 @@
 </head>
 <body class="container-fluid">
 	<header class="row"><h1 class="col-xs-12">Ipartek - Gestion de Cursos</h1></header>
-	<nav>
-		<ul class="row">
-			<li class="col-xs-4 col-md-2">
-				<a href="<%=Constantes.SERVLET_CURSOS%>">
-					Ver todos los cursos
-				</a>
-			</li>
-			<li class="col-xs-4 col-md-2">
-				<a href="<%=Constantes.SERVLET_ALUMNOS%>">
-					Ver todos los alumnos
-				</a>
-			</li>
-			<li class="col-xs-4 col-md-2">
-				<a href="<%=Constantes.SERVLET_MODULOS%>">
-					Ver todos los modulos
-				</a>
-			</li>
-		</ul>
-	</nav>
+	
+	<nav class="navbar navbar-inverse" role="navigation">
+		  <!-- El logotipo y el icono que despliega el menú se agrupan
+		       para mostrarlos mejor en los dispositivos móviles -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse"
+		            data-target=".navbar-ex1-collapse">
+		      <span class="sr-only">Desplegar navegación</span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="index.jsp">Página Principal</a>
+		  </div>
+		  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    		<ul class="nav navbar-nav">
+    			<li class="dropdown">
+					<a href="<%=Constantes.SERVLET_CURSOS%>">
+						Ver todos los cursos
+					</a>
+				</li>
+				<li class="dropdown">
+					<a href="<%=Constantes.SERVLET_ALUMNOS%>">
+						Ver todos los alumnos
+					</a>
+				</li>
+				<li class="dropdown">
+					<a href="<%=Constantes.SERVLET_MODULOS%>">
+						Ver todos los modulos
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="<%=Constantes.SERVLET_MODULOS%>?<%=Constantes.PAR_CODIGO%>=<%=Modulo.CODIGO_MODULO%>">Crear Modulo Nuevo</a></li>
+					</ul>
+				</li>
+			</ul>
+			</div>
+		</nav>

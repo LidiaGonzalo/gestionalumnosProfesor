@@ -29,8 +29,7 @@ formulario +="<button type='submit' class='btn btn-danger'>Borrar</button>";
 					%>
 				<div class="row">
 					<a class="col-xs-10 col-md-6" href='<%=Constantes.SERVLET_MODULOS %>
-						?<%=Constantes.PAR_CODIGO%>
-						=<%=modulo.getCodigo()  %>'>
+						?<%=Constantes.PAR_CODIGO%>=<%=modulo.getCodigo() %>'>
 						<%=modulo.getNombre() %>
 					</a>
 					<%=formulario %>						

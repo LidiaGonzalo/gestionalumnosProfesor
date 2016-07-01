@@ -1,5 +1,7 @@
 package com.ipartek.formacion.controller;
 
+import java.util.GregorianCalendar;
+
 public class Constantes {
 	private Constantes() {}
 	
@@ -20,12 +22,17 @@ public class Constantes {
 	public final static String PAR_DNI = "dni";
 	public final static String PAR_APELLIDOS = "apellidos";
 	public final static String PAR_OPERACION ="operacion";
+	public final static String PAR_MES ="mes";
+	public final static String PAR_DIA ="dia";
+	public final static String PAR_ANYO ="anyo";
 	
 	public final static String SERVLET_CURSOS ="cursos.do";
 	public final static String SERVLET_ALUMNOS ="alumnos.do";
 	public final static String SERVLET_MODULOS ="modulos.do";
 	
 	
+
+
 	public final static String JSP_LISTADO_CURSOS ="/cursos/listado.jsp";
 	public final static String JSP_CURSO ="/cursos/curso.jsp";
 	
