@@ -42,7 +42,7 @@
 		  <div class="collapse navbar-collapse navbar-ex1-collapse">
     		<ul class="nav navbar-nav">
     			<li class="dropdown">
-					<a href="<%=Constantes.SERVLET_CURSOS%>">
+					<a class="dropdown-toggle" href="<%=Constantes.SERVLET_CURSOS%>">
 						Ver todos los cursos
 					</a>
 				</li>
@@ -52,7 +52,7 @@
 					</a>
 				</li>
 				<li class="dropdown">
-					<a href="<%=Constantes.SERVLET_MODULOS%>">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="<%=Constantes.SERVLET_MODULOS%>">
 						Ver todos los modulos
 					</a>
 					<ul class="dropdown-menu">

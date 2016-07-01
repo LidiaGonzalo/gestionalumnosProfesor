@@ -90,7 +90,7 @@
 						<div class="row">
 							<div class="col-xs-3">
 								<label for="">Día</label>
-								<input type="number"  value="<%=calendar.get(GregorianCalendar.DAY_OF_MONTH) %>" class="form-control" min="1" max="12" step="1" name="<%=Constantes.PAR_DIA%>"	/>
+								<input type="number"  value="<%=calendar.get(GregorianCalendar.DAY_OF_MONTH) %>" class="form-control" min="1" max="31" step="1" name="<%=Constantes.PAR_DIA%>"	/>
 							</div>
 							<div class="col-xs-3">
 									<label for="">Mes</label>
@@ -103,6 +103,8 @@
 							</div>
 						</div>
 					</div> 
+				</div>
+				<div class="">
 				</div>
 				<div class="form-group">
 					<div class="col-xs-10">
